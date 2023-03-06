@@ -6,7 +6,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>@yield('title')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/png" href="assets/images/icon/favicon.ico">
+    <!-- <link rel="shortcut icon" type="image/png" href="assets/images/icon/favicon.ico"> -->
     @include('backend.layouts.partials.styles')
     @yield('styles')
 </head>
@@ -30,7 +30,7 @@
     </div>
     <!-- error area end -->
 
-    @include('backend.layouts.partials.offsets')
+    <!-- @include('backend.layouts.partials.offsets') -->
     @include('backend.layouts.partials.scripts')
     @yield('scripts')
 </body>

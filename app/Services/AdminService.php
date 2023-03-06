@@ -41,7 +41,7 @@ class AdminService
                                         onclick="event.preventDefault(); document.getElementById(\'delete-form-'. $row->id.'\').submit();">
                                         Delete
                                     </a>
-                                    <form id="delete-form-{{ $role->id }}" action="'.route('admin.admins.destroy', $row->id) .'" method="POST" style="display: none;">
+                                    <form id="delete-form-"'. $row->id .'" action="'.route('admin.admins.destroy', $row->id) .'" method="POST" style="display: none;">
                                            @method(\'DELETE\')
                                          @csrf</form>';
                 return $actionBtn;

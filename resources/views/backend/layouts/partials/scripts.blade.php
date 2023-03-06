@@ -19,9 +19,9 @@ zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
 ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "ee6b7db5b51705a13dc2339db3edaf6d"];
 </script>
 <!-- all line chart activation -->
-<script src="{{ asset('backend/assets/js/line-chart.js') }}"></script>
+<!-- <script src="{{ asset('backend/assets/js/line-chart.js') }}"></script> -->
 <!-- all pie chart -->
-<script src="{{ asset('backend/assets/js/pie-chart.js') }}"></script>
+<!-- <script src="{{ asset('backend/assets/js/pie-chart.js') }}"></script> -->
 <!-- others plugins -->
 <script src="{{ asset('backend/assets/js/plugins.js') }}"></script>
 <script src="{{ asset('backend/assets/js/scripts.js') }}"></script>

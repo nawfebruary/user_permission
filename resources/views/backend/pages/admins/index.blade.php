@@ -7,10 +7,14 @@ Admins - Admin Panel
 
 @section('styles')
     <!-- Start datatable css -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css"> -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.jqueryui.min.css">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.3/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.3.5/css/buttons.dataTables.min.css">
+
 @endsection
 
 
@@ -79,9 +83,14 @@ Admins - Admin Panel
      <!-- Start datatable js -->
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
-     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+     <script src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"></script>
+     <script src="https://cdn.datatables.net/buttons/2.3.5/js/dataTables.buttons.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+     <script src="https://cdn.datatables.net/buttons/2.3.5/js/buttons.html5.min.js"></script>
+     <script src="https://cdn.datatables.net/buttons/2.3.5/js/buttons.print.min.js"></script>
 
      <script>
          $(function () {
@@ -89,13 +98,40 @@ Admins - Admin Panel
                  processing: true,
                  serverSide: true,
                  pageLength: 10,
+                 dom: 'Bfrtip',
+                buttons: [
+                    {
+                        extend: 'excelHtml5',
+                        exportOptions: {
+                            columns: [ 0, 1, 2, 3 ]
+                        }
+                        
+                    },
+                    {
+                        extend: 'csvHtml5',
+                        exportOptions: {
+                            columns: [ 0, 1, 2, 3 ]
+                        }
+                    },
+                    {
+                        extend: 'pdfHtml5',
+                        exportOptions: {
+                            columns: [ 0, 1, 2, 3 ]
+                        }
+                    },
+                    'colvis'
+                ],
+                 columnDefs: [{
+                    orderable: false,
+                    targets: -1
+                }] ,
                  ajax: "{{ route('admin.admins.index') }}",
                  columns: [
                      { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
                      {data: 'name', name: 'name' },
                      {data: 'email', name: 'email'},
                      {data: 'roles', name: 'roles'},
-                     {data: 'action', name: 'action', orderable: false, searchable: false},
+                     {data: 'action', name: 'action', orderable: false, searchable: false, exportable : false},
                  ]
              });
          });

@@ -13,7 +13,7 @@ Install Laravel Dependencies -
 composer install
 ```
 
-Create database called - `reservation`
+Create database called - `user_management`
 
 Create `.env` file by copying `.env.example` file
 

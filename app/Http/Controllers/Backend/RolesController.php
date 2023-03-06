@@ -92,8 +92,6 @@ class RolesController extends Controller
                 ->withInput();
         }
 
-
-
         $res = $this->roleService->createRole($request);
         $res ? session()->flash('success', 'Role has been created !!') : session()->flash('error', 'Role was not created !!');
         return back();
@@ -149,21 +147,6 @@ class RolesController extends Controller
                 ->withInput();
         }
 
-        // Validation Data
-//        $request->validate([
-//            'name' => 'required|max:100|unique:roles,name,' . $id
-//        ], [
-//            'name.requried' => 'Please give a role name'
-//        ]);
-//
-//        $role = Role::findById($id, 'admin');
-//        $permissions = $request->input('permissions');
-//
-//        if (!empty($permissions)) {
-//            $role->name = $request->name;
-//            $role->save();
-//            $role->syncPermissions($permissions);
-//        }
 
         $res = $this->roleRepo->updateRole($request, $id);
         session()->flash('success', 'Role has been updated !!');
@@ -181,11 +164,6 @@ class RolesController extends Controller
         if (is_null($this->user) || !$this->user->can('role.delete')) {
             abort(403, 'Sorry !! You are Unauthorized to delete any role !');
         }
-
-//        $role = Role::findById($id, 'admin');
-//        if (!is_null($role)) {
-//            $role->delete();
-//        }
 
         session()->flash('success', 'Role has been deleted !!');
         return back();

@@ -96,18 +96,6 @@ class AdminsController extends Controller
 
         $res = $this->adminService->createAdmin($validated);
 
-        // Create New Admin
-//        $admin = new Admin();
-//        $admin->name = $request->name;
-//        $admin->username = $request->username;
-//        $admin->email = $request->email;
-//        $admin->password = Hash::make($request->password);
-//        $admin->save();
-//
-//        if ($request->roles) {
-//            $admin->assignRole($request->roles);
-//        }
-
         $res ? session()->flash('success', 'Admin has been created !!') : session()->flash('error', 'Admin was not created !!');
         return redirect()->route('admin.admins.index');
     }
@@ -153,9 +141,6 @@ class AdminsController extends Controller
             abort(403, 'Sorry !! You are Unauthorized to edit any admin !');
         }
 
-        // Find existing Admin
-//        $admin = $this->adminRepo->findAdminById($id);
-
         $validator = $this->adminValidator->update($request->all(), $id);
 
         if ($validator->fails()) {
@@ -166,27 +151,6 @@ class AdminsController extends Controller
 
         // Retrieve the validated input...
         $validated = $validator->validated();
-
-        // Validation Data
-//        $request->validate([
-//            'name' => 'required|max:50',
-//            'email' => 'required|max:100|email|unique:admins,email,' . $id,
-//            'password' => 'nullable|min:6|confirmed',
-//        ]);
-
-
-//        $admin->name = $request->name;
-//        $admin->email = $request->email;
-//        $admin->username = $request->username;
-//        if ($request->password) {
-//            $admin->password = Hash::make($request->password);
-//        }
-//        $admin->save();
-//
-//        $admin->roles()->detach();
-//        if ($request->roles) {
-//            $admin->assignRole($request->roles);
-//        }
 
         $res = $this->adminService->updateAdmin($id, $validated);
         $res ? session()->flash('success', 'Admin has been updated !!') : session()->flash('error', 'Admin was not updated !!');
@@ -205,11 +169,6 @@ class AdminsController extends Controller
             abort(403, 'Sorry !! You are Unauthorized to delete any admin !');
         }
 
-
-//        $admin = Admin::find($id);
-//        if (!is_null($admin)) {
-//            $admin->delete();
-//        }
         $res = $this->adminService->deleteAdmin($id);
         $res ?session()->flash('success', 'Admin has been deleted !!') : session()->flash('error', 'Admin was not deleted !!');
         return back();

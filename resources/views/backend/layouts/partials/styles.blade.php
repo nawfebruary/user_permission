@@ -1,4 +1,4 @@
-<link rel="shortcut icon" type="image/png" href="{{ asset('backend/assets/images/icon/favicon.ico') }}">
+<!-- <link rel="shortcut icon" type="image/png" href="{{ asset('backend/assets/images/icon/favicon.ico') }}"> -->
 <link rel="stylesheet" href="{{ asset('backend/assets/css/bootstrap.min.css') }}">
 <link rel="stylesheet" href="{{ asset('backend/assets/css/font-awesome.min.css') }}">
 <link rel="stylesheet" href="{{ asset('backend/assets/css/themify-icons.css') }}">
