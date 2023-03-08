@@ -36,13 +36,10 @@ So, You've got the project of Laravel Role & Permission Management on your http:
 
 ## How it works
 1. Login using Super Admin Credential -
-    1. Username - `superadmin`
-    1. Password - `12345678`
+     Username - `superadmin`
+     Password - `12345678`
 2. Create Admin
 3. Create Role
 4. Assign Permission to Roles
-5. Assign Multiple Role to an admin
-6. Check by login with the new credentials.
-7. If you've not enough permission to do any task, you'll get a warning message.
 
 
